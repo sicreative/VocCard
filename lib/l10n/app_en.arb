@@ -1,0 +1,125 @@
+{
+    "vocabulary": "Vocabulary",
+    "detail": "Detail",
+    "main_waiting":"Waiting...",
+    "main_morewords":"Input more words for the quiz..",
+    "main_appbar_title":"Learn Vocabulary",
+    "list_appbar_title":"List Vocabulary",
+    "editcard_newcard_title": "New Vocabulary",
+    "editcard_editcard_title": "Edit Vocabulary",
+    "editcard_voc_label_text": "Vocabulary",
+    "editcard_voc_hint_text": "Please enter new Vocabulary",
+    "editcard_voc_meaning_label_text": "Meaning",
+    "editcard_voc_meaning_hint_text": "Please enter the meaning",
+    "editcard_voc_note_label_text": "Notes",
+    "editcard_voc_note_hint_text": "Any Additonal Notes?",
+    "editcard_voc_field_invalid_noinput": "Please enter new Vocabulary",
+    "editcard_voc_field_invalid_withspace": "Vocabulary should no space",
+    "editcard_type_label":"Type",
+    "editcard_level_label":"Level",
+    "editcard_submit":"Submit",
+    "editcard_change":"Change",
+    "editcard_submit_message_sucessful" : "The {vocabulary} have been Submitted",
+     "@editcard_submit_message_sucessful": {
+                "placeholders":{
+                    "vocabulary":{
+                        "type": "String"
+                    }
+                }
+            },
+    "editcard_submit_message_failure" : "The {vocabulary} Submit is failure",
+     "@editcard_submit_message_failure": {
+                "placeholders":{
+                    "vocabulary":{
+                        "type": "String"
+                    }
+                }
+            },
+    "editcard_change_message_sucessful" : "The {vocabulary} have been Changed",
+    "@editcard_change_message_sucessful": {
+            "placeholders":{
+                "vocabulary":{
+                    "type": "String"
+                }
+            }
+        },
+    "editcard_change_message_failure" : "The {vocabulary} change is failure",
+            "@editcard_change_message_failure": {
+                    "placeholders":{
+                        "vocabulary":{
+                            "type": "String"
+                        }
+                    }
+                },
+    "editcard_delete" : "Delete",
+    "editcard_delete_message_sucessful": "The {vocabulary} have been deleted",
+    "@editcard_delete_message_sucessful": {
+        "placeholders":{
+            "vocabulary":{
+                "type": "String"
+            }
+        }
+    },
+    "editcard_delete_message_failure": "The {vocabulary} delete is failure",
+    "@editcard_delete_message_failure": {
+            "placeholders":{
+                "vocabulary":{
+                    "type": "String"
+                }
+            }
+    },
+    "voc_type_noun":"Noun",
+    "voc_type_verb":"Verb",
+    "voc_type_adj":"Adjective",
+    "voc_type_adv":"Adverb",
+    "voc_type_other":"Other",
+    "voc_type_prep":"Preposition",
+    "voc_type_pron":"Pronouns",
+    "voc_type_deter":"Determiners",
+    "voc_type_conj":"Conjunctions",
+    "voc_level_adv":"Advanced",
+    "voc_level_adv_cefr" : "C2",
+    "voc_level_preadv":"Pre-Advanced",
+    "voc_level_preadv_cefr" : "C1",
+    "voc_level_upperInter":"Upper-Intermediate",
+    "voc_level_upperInter_cefr" : "B2",
+    "voc_level_inter":"Intermediate",
+    "voc_level_inter_cefr" : "B1",
+    "voc_level_preInter":"Pre-intermediate",
+    "voc_level_preInter_cefr" : "A2",
+    "voc_level_elem":"Elementary",
+    "voc_level_elem_cefr" : "A1",
+    "drawer_wrong" : "Wrong",
+    "drawer_correct" : "Correct",
+    "drawer_new" : "New",
+    "drawer_all" : "All",
+    "drawer_save" : "Save",
+    "drawer_load" : "Load",
+    "duration_daily":"Today",
+    "duration_weekly":"Week",
+    "duration_monthly":"Month",
+    "duration_yearly":"Year",
+    "duration_all":"All",
+    "load_sucessful":"{numofitem} loaded",
+    "@load_sucessful": {
+                "placeholders":{
+                    "numofitem":{
+                        "type": "String"
+                    }
+                }
+        },
+    "load_waiting":"Please wait....",
+    "load_failure":"File can't be loaded",
+    "load_noitem":"No Vocabulary imported",
+    "save_sucessful":"{numofitem} Saved",
+     "@save_sucessful": {
+                    "placeholders":{
+                        "numofitem":{
+                            "type": "String"
+                        }
+                    }
+            },
+    "save_failure":"File can't be saved",
+    "save_noitem":"No Item to save"
+
+}
