@@ -1,26 +1,27 @@
 # VocCard
 
-![pic1](images/1.png)
-![pic2](images/2.png)
-![pic2](images/3.png)
+<img src="./image/2.png" height="500"/>    <img src="./image/3.png"  height="500"/>
+<img src="./image/1.png" width="500"/>
+
+
 
 ## Getting Started
 
-This is a project create by Flutter support Android,iOS and MacOS.
+This is a project create by Flutter support Android, iOS and MacOS.
 
 The UI and database(sqflite) is based on Flutter as a single codebase.
-However, the "Load/Save" is native codes for open the Operating System default file picker,
+However, the "Load/Save" of CSV is native as request open the Operating System default file picker,
 MethodChannel used connect between flutter and three independent native codes for Android,iOS and MacOS.
 
 - [Download Android version on Google Play](https://play.google.com/store/apps/details?id=com.sicreative.vocabularycard.vocabulary_card)
 
-- [Download MacOS](macos/app/VocCard.zip)
+- [Download MacOS](./macos/app/VocCard.zip)
 
 ### For iOS
 
 You need to build the app in a Mac with XCode installed and with a free Personal Team apple account.
 
-1. Follow this guide to [Install flutter SDK]https://flutter.dev/docs/get-started/install/macos in MacOS
+1. Follow this guide to [Install flutter SDK](https://flutter.dev/docs/get-started/install/macos) in MacOS
 
 1. In XCode, choose File>Open, select ios folder, and open Runner.xcworkspace
 
@@ -28,9 +29,9 @@ You need to build the app in a Mac with XCode installed and with a free Personal
 
 3. Ensure "Automatically manage signing" is ticked, select "Term" from None to your account (Personal Term free account is fine)
 
-4. At terminal under project folder enter command: ```flutter clean
+4. At terminal under project folder enter command: flutter clean
 
-5. ```flutter build ipa
+5. flutter build ipa
 
 6. Open MacOS Finder,under build/ios/archive/Runner.xcarchive, Right click and select "Show Package Contents"
 
