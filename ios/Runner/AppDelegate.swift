@@ -4,6 +4,11 @@ import UniformTypeIdentifiers
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate, UIDocumentPickerDelegate {
+    
+    var loadController:UIDocumentPickerViewController?;
+    var saveController:UIDocumentPickerViewController?;
+    
+    
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -32,24 +37,55 @@ import UniformTypeIdentifiers
   }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        pickerPickedCallBack(url)
+        
+        if (controller==loadController){
+            pickerPickedCallBack(url)
+            return
+        }
+        
+        if (controller==saveController){
+            saveResultTrue()
+            return
+        }
     }
     
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        if (urls.count==1){
-            pickerPickedCallBack(urls[0])
+        
+        if(controller==loadController){
+            if (urls.count==1){
+                pickerPickedCallBack(urls[0])
+            }
+            
+            return
+        }
+        
+        if(controller==saveController){
+            saveResultTrue()
+            return
+        }
+        
+        
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        if(controller==loadController){
+            
+            return
+        }
+        
+        if(controller==saveController){
+           
+            return
         }
     }
+    
+    
     
     private func pickerPickedCallBack(_ url:URL){
         
         
-        let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
-            
-        let fileChannel = FlutterMethodChannel(name: "com.sicreative.vocabularycard.vocabulary_card/file",
-                                                      binaryMessenger: controller.binaryMessenger)
-      
+        
         do{
             
            let isAccessing = url.startAccessingSecurityScopedResource()
@@ -61,6 +97,11 @@ import UniformTypeIdentifiers
             }
         
             let args = ["csv":csv,"result":"true"]
+            
+            let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
+                
+            let fileChannel = FlutterMethodChannel(name: "com.sicreative.vocabularycard.vocabulary_card/file",
+                                                          binaryMessenger: controller.binaryMessenger)
          
             fileChannel.invokeMethod("loadresult", arguments: args)
             
@@ -69,11 +110,22 @@ import UniformTypeIdentifiers
             
             print("Unexpected error: \(error).")
             
-            let args = ["result":"false"]
-         
-            fileChannel.invokeMethod("loadresult", arguments: args)
+            loadResultFalse()
             
         }
+        
+    }
+    
+    private func loadResultFalse(){
+        
+        let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
+            
+        let fileChannel = FlutterMethodChannel(name: "com.sicreative.vocabularycard.vocabulary_card/file",
+                                                      binaryMessenger: controller.binaryMessenger)
+    
+        let args = ["result":"false"]
+     
+        fileChannel.invokeMethod("loadresult", arguments: args)
         
     }
     
@@ -90,7 +142,7 @@ import UniformTypeIdentifiers
         let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
         let fileChannel = FlutterMethodChannel(name: "com.sicreative.vocabularycard.vocabulary_card/file",
                                                       binaryMessenger: controller.binaryMessenger)
-        let args = ["result":"true"]
+        let args = ["result":"flase"]
          
             fileChannel.invokeMethod("saveresult", arguments: args)
     }
@@ -111,22 +163,25 @@ import UniformTypeIdentifiers
         
         if #available(iOS 14.0, *) {
             
-            let documentPickerController = UIDocumentPickerViewController(forExporting: [url!])
+            saveController = UIDocumentPickerViewController(forExporting: [url!])
+            saveController!.delegate = self
             
-            controller.present(documentPickerController, animated: true, completion: saveResultTrue)
+            controller.present(saveController!, animated: true, completion: nil)
             
         } else {
 
-            let documentPickerController = UIDocumentPickerViewController(documentTypes: ["csv"], in: .exportToService)
+            saveController = UIDocumentPickerViewController(documentTypes: ["csv"], in: .exportToService)
+            
+            saveController!.delegate = self
           
-            controller.present(documentPickerController, animated: true, completion: saveResultTrue)
+            controller.present(saveController!, animated: true, completion: nil)
           
         }
         
         
       
         
-        saveResultFalse();
+     //  saveResultFalse();
        
 
         
@@ -152,19 +207,19 @@ import UniformTypeIdentifiers
                     
                     let type = UTType(filenameExtension: "csv")
                     
-                    let documentPickerController = UIDocumentPickerViewController(forOpeningContentTypes: [type!])
-                        documentPickerController.delegate = self
-                            controller.present(documentPickerController, animated: true, completion: nil)
+                    loadController = UIDocumentPickerViewController(forOpeningContentTypes: [type!])
+                    loadController!.delegate = self
+                            controller.present(loadController!, animated: true, completion: nil)
                     
                     
                     
                 } else {
 
-                    let documentPickerController = UIDocumentPickerViewController(documentTypes: ["csv"], in: .open)
+                    loadController = UIDocumentPickerViewController(documentTypes: ["csv"], in: .open)
                     
-                   documentPickerController.delegate = self
+                    loadController!.delegate = self
                     
-                    controller.present(documentPickerController, animated: true, completion:nil)
+                    controller.present(loadController!, animated: true, completion:nil)
                   
                 }
               
