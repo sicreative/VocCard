@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 enum VocabularyType { Noun, Verb, Adj, Adv, Prep, Pron, Deter, Conj }
 enum VocabularyLevel { C2, C1, B2, B1, A2, A1 }
 enum VocabularyDatePeriod { Today, Week, Month, Year, All }
-enum VocabularyMode { New, Wrong, Correct, All }
+enum VocabularyMode { New, Correct, Wrong, All }
 
 const appbarTitleDrawerIcon = Icons.view_headline;
 
