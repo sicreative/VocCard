@@ -2,7 +2,7 @@
     "vocabulary": "Vocabulary",
     "detail": "Detail",
     "main_waiting":"Waiting...",
-    "main_morewords":"Input more words for the quiz..",
+    "main_morewords":"need more words for the quiz...",
     "main_appbar_title":"Learn Vocabulary",
     "list_appbar_title":"List Vocabulary",
     "editcard_newcard_title": "New Vocabulary",
