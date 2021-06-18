@@ -15,7 +15,7 @@ class SelectDrawer extends StatefulWidget {
   @override
   _SelectDrawerState createState() => _SelectDrawerState();
 
-// Callbacks for change requirement after user change the sorting parameters
+// Callbacks for update notify when user change the parameters
   static List<void Function()?> _updateCallbacks = List.empty(growable: true);
 
   static int addCallback(void Function() callback){
