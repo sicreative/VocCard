@@ -22,6 +22,7 @@ class _NewCardTextFormField extends StatelessWidget {
     this.onchanged,
     this.controllers,
     this.enable=true,
+    this.maxLines=null,
     required this.state,
     required this.index,
   });
@@ -34,12 +35,15 @@ class _NewCardTextFormField extends StatelessWidget {
   final int index;
   final List<TextEditingController>? controllers;
   final bool? enable;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 8.0, right: 20.0),
       child: TextFormField(
+        keyboardType: TextInputType.text,
+        maxLines: maxLines,
         enabled: true,
         readOnly: !enable!,
         controller: controllers![index],
@@ -266,6 +270,7 @@ class _EditCardStatefulWidgetState extends State<EditCardStatefulWidget> {
               hintText: AppLocalizations.of(context)!.editcard_voc_hint_text,
               labelText: AppLocalizations.of(context)!.editcard_voc_label_text,
               state: this,
+              maxLines: 1,
               controllers: _textEditingControllers,
               index: 0,
               enable: !_fromlist,
