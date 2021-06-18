@@ -100,6 +100,8 @@ class _MainAppState extends State<MainAppStatefulWidget>
   }
 
   void _newQuiz() {
+
+
     Db.getQuiz(
         numOfChoose,
         (VocabularyQuiz q) => {
@@ -114,6 +116,7 @@ class _MainAppState extends State<MainAppStatefulWidget>
   }
 
   void _resetQuiz() {
+
     Db.getNumOfChoose((numOfChoose) {
       assert(numOfChoose>0 && numOfChoose<=maxOfChoose);
       setState(() {
@@ -264,20 +267,23 @@ class _MainAppState extends State<MainAppStatefulWidget>
                                 style: TextStyle(fontSize: 24)),
                             trailing: AnimatedOpacity(
                               opacity: quiz!.isSelected(i) ? 1.0 : 0.0,
-                              duration: Duration(milliseconds: widget.selectedIconFadeOutMs),
+                              duration: Duration(milliseconds: quiz!.isSelected(i)?widget.selectedIconFadeOutMs:0),
                               onEnd: () {
 
                                 if (quiz!.isSelected(i))
                                   Future.delayed(Duration(milliseconds: widget.selectedIconRemainMs),
                                       () {
                                     setState(() {
-                                      quiz!.resetSelected(i);
+
                                       if (quiz!.isCorrect(i))
                                         Future.delayed(
                                              Duration(milliseconds: widget.selectedIconFadeOutMs),
                                             () {
-                                          _newQuiz();
-                                        });
+                                                   if (quiz!.isSelected(i) && quiz!.isCorrect(i)) {
+                                                     quiz!.resetSelected(i);
+                                                     _newQuiz();
+                                                   }
+                                              });
                                     });
                                   });
                               },
