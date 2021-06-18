@@ -37,7 +37,9 @@ You need to build the app in a Mac with XCode installed and with a free Personal
 
 7. In XCode, Windows>Devices and Simulators, select the device which to install
 
-8. In Finder, Drag and drop the Products/Applications/Runner to the Device&Simulators > "Installed Apps" field.XCode
+8. In Finder, Drag and drop the Products/Applications/Runner to the Device&Simulators > "Installed Apps" field.
+
+or (5. flutter build ios , Drag and drop the ./build/ios/iphoneos/Runner to the Device&Simulators > "Installed Apps" field.)
 
 9. In IOS device, Settings>General>Device Management, Select relative Developer and Trust the Developer.
 
